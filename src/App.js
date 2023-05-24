@@ -9,36 +9,46 @@ import Footer from "./componentes/Footer";
 
 function App() {
   const [mostrarFormulario, actualizarMostrar] = useState(false);
-  const [colaboradores, actualizarColaboradores] = useState([
-    {
-      equipo: "Programacion ",
-      foto: "https://avatars.githubusercontent.com/u/80241141?s=400&u=a80e32db81704684f4e44b1bae57c858a4176dfe&v=4",
-      nombre: "Genesis Rondon",
-      puesto: "Desarrolladora de sofware e instructora",
-      fav:(true)
-    },
-    {
-      equipo: "Programacion ",
-      foto: "https://avatars.githubusercontent.com/u/80241141?s=400&u=a80e32db81704684f4e44b1bae57c858a4176dfe&v=4com/JeanmarieAluraLatam.png",
-      nombre: "Daniel lopez guzman",
-      puesto: "Desarrollador web",
-      fav:(false)
-    },
-    {
-      equipo: "Front End",
-      foto: "https://avatars.githubusercontent.com/u/80241141?s=400&u=a80e32db81704684f4e44b1bae57c858a4176dfe&v=4",
-      nombre: "Fernando iek",
-      puesto: "Desarrollador web",
-      fav:(true)
-    },
-    {
-      equipo: "UX y Diseño",
-      foto: "https://avatars.githubusercontent.com/u/80241141?s=400&u=a80e32db81704684f4e44b1bae57c858a4176dfe&v=4",
-      nombre: "Cristian velazco",
-      puesto: "Head de alura e instructor",
-      fav:(false)
-    },
-  ]);
+  const [colaboradores, actualizarColaboradores] = useState([{
+    id: uuid(),
+    equipo: "Front End",
+    foto: "https://github.com/harlandlohora.png",
+    nombre: "Harland Lohora",
+    puesto: "Instructor",
+    fav: true
+  },
+  {
+    id: uuid(),
+    equipo: "Programación",
+    foto: "https://github.com/genesysaluralatam.png",
+    nombre: "Genesys Rondón",
+    puesto: "Desarrolladora de software e instructora",
+    fav: false
+  },
+  {
+    id: uuid(),
+    equipo: "UX y Diseño",
+    foto: "https://github.com/JeanmarieAluraLatam.png",
+    nombre: "Jeanmarie Quijada",
+    puesto: "Instructora en Alura Latam",
+    fav: false
+  },
+  {
+    id: uuid(),
+    equipo: "Programación",
+    foto: "https://github.com/christianpva.png",
+    nombre: "Christian Velasco",
+    puesto: "Head de Alura e Instructor",
+    fav: false
+  },
+  {
+    id: uuid(),
+    equipo: "Innovación y Gestión",
+    foto: "https://github.com/JoseDarioGonzalezCha.png",
+    nombre: "Jose Gonzalez",
+    puesto: "Dev FullStack",
+    fav: false
+    }]);
 
   const [equipos, actualizarEquipo] = useState([
     {
@@ -131,8 +141,14 @@ const crearEquipo = (nuevoEquipo) => {
 
 const like =(id)=>{
   console.log("Like", id);
+  const colaboradoresActualizados = colaboradores.map((colaborador)=>{
+    if(colaborador.id === id){
+      colaborador.fav = !colaborador.fav
+  }
+  return colaborador
+ })
+ actualizarColaboradores(colaboradoresActualizados)
 }
-
 
   return (
     <div>

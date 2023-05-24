@@ -29,9 +29,10 @@ const Formulario = (props) => {
 
   const manejarNuevoEquipo = (e) => {
     e.preventDefault();
-    console.log(titulo, color);
-    crearEquipo({ titulo, color });
-  };
+      crearEquipo({ titulo, colorPrimario: color })
+  }
+
+
 
   return (
     <section className="formulario">
